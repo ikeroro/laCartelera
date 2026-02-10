@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(201, 201, 254);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    min-width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(34, 180, 248);
+}
+
+.formularioContainer{
+    background-color: blueviolet;
+    display: flex;
+    width: 100%;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        width: 100%;
+        border-radius: 0 0 10px 10px;
+
+        input{
+            margin-bottom: 16px;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button{
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(34, 180, 248);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
