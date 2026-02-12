@@ -21,8 +21,11 @@
     <?php include 'componentes/header.php'; ?>
 
     <main>
-        <h2>Perfil</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem eligendi ullam harum id. Officia aperiam illo labore, sed modi magni ut maiores! Corporis ipsum at omnis vero quidem nesciunt illum?</p>
+    <div class="perfil">
+        <h2><?php echo ($_SESSION['usuario'])?> </h2>
+        
+    </div>
+    <!-- resto del contenido -->
     </main>
 
     <?php include 'componentes/footer.php'; ?>

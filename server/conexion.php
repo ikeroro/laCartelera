@@ -1,14 +1,12 @@
 <?php
-
-$servername = "localhost";
-$username = "root"; 
+$servidor = "localhost";
+$usuario = "root";
 $password = "";
-$dbname = "laCartelera";
+$base_datos = "lacartelera";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $conexion = new PDO("mysql:host=$servidor;dbname=$base_datos;charset=utf8", $usuario, $password);
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error de conexión: " . $e->getMessage());
 }
-
-?>

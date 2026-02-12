@@ -48,6 +48,23 @@ CREATE TABLE `peliculasGeneros` (
     FOREIGN KEY (`idGenero`) REFERENCES `generos`(`id`)
 );
 
+-- Nueva tabla: plataformas
+CREATE TABLE `plataformas` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(255) NOT NULL,
+    `url` VARCHAR(255),
+    PRIMARY KEY (`id`)
+);
+
+-- Tabla nexo: peliculasPlataformas
+CREATE TABLE `peliculasPlataformas` (
+    `idPelicula` INT NOT NULL,
+    `idPlataforma` INT NOT NULL,
+    PRIMARY KEY (`idPelicula`, `idPlataforma`),
+    FOREIGN KEY (`idPelicula`) REFERENCES `peliculas`(`id`),
+    FOREIGN KEY (`idPlataforma`) REFERENCES `plataformas`(`id`)
+);
+
 CREATE TABLE `usuarios` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `usuario` VARCHAR(255) NOT NULL UNIQUE,
@@ -119,6 +136,25 @@ INSERT INTO `peliculasGeneros` (`idPelicula`, `idGenero`) VALUES
 (4, 4),
 (5, 1),
 (5, 3);
+
+INSERT INTO `plataformas` (`nombre`, `url`) VALUES
+('Netflix', 'https://www.netflix.com'),
+('Amazon Prime Video', 'https://www.primevideo.com'),
+('HBO Max', 'https://www.hbomax.com'),
+('Disney+', 'https://www.disneyplus.com'),
+('Apple TV+', 'https://tv.apple.com');
+
+INSERT INTO `peliculasPlataformas` (`idPelicula`, `idPlataforma`) VALUES
+(1, 1), -- Inception en Netflix
+(1, 3), -- Inception en HBO Max
+(2, 1), -- Pulp Fiction en Netflix
+(2, 2), -- Pulp Fiction en Amazon Prime Video
+(3, 1), -- The Shawshank Redemption en Netflix
+(3, 4), -- The Shawshank Redemption en Disney+
+(4, 1), -- Avatar en Netflix
+(4, 4), -- Avatar en Disney+
+(5, 2), -- The Wolf of Wall Street en Amazon Prime Video
+(5, 3); -- The Wolf of Wall Street en HBO Max
 
 INSERT INTO `usuarios` (`usuario`, `email`, `contrasena`, `rol`, `fotoPerfil`) VALUES
 ('juan', 'juan@gmail.com', 'abc123.', 'usuario', NULL),
